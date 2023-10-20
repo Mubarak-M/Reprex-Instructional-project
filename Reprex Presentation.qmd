@@ -12,6 +12,8 @@ format:
     theme: ["pp.scss"]
     slide-number: c/t
     incremental: TRUE
+    logo: iowa.png
+    css: logo.css
 editor: source
 ---
 
