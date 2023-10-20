@@ -1,0 +1,117 @@
+---
+title: "Exploring reprex: A Reproducible Example Engine for R"
+authors:
+- Mubarak Mojoyinola
+- Ethan Murra
+- Max Miller
+- Yash Vora
+format: 
+  revealjs:
+    multiplex: false
+    footer: "STAT 5400: Computing in Statistics"
+    theme: ["pp.scss"]
+    slide-number: c/t
+    incremental: TRUE
+editor: source
+---
+
+
+---
+
+## Introduction to Reproducibility
+
+- Define reproducibility in the context of data analysis and programming
+- Highlight the importance of reproducibility in research and data science
+
+---
+
+## Motivation for reprex
+
+- Discuss common challenges faced in creating reproducible examples in R
+- Introduce reprex as a solution to these challenges
+
+---
+
+## What is reprex?
+
+- Definition and purpose of reprex
+- Briefly mention the package's history and development
+
+---
+
+## Installation and Setup
+
+- Instructions for installing reprex
+- Brief demonstration of package setup and configuration
+
+---
+
+## reprex Workflow
+
+- Overview of the typical workflow when using reprex
+- Steps involved in creating a reproducible example
+
+---
+
+## Creating a Basic Reprex
+
+- Demonstrate how to create a simple reprex using a basic R script
+- Emphasize the key components, including code, input, and output
+
+---
+
+## Advanced reprex Features
+
+- Explore advanced options, such as rendering to R Markdown or saving as a standalone file
+- Discuss how these features enhance the reproducibility process
+
+---
+
+## Handling External Dependencies
+
+- Explain how reprex handles dependencies, such as packages and data files
+- Provide examples of including necessary resources in a reprex
+
+---
+
+## Customizing reprex Behavior
+
+- Discuss options for customizing the behavior of reprex
+- Illustrate how to set specific parameters to meet individual requirements
+
+---
+
+## Sharing and Publishing Reprex
+
+- Walk through the process of sharing a reprex with others
+- Discuss best practices for publishing reprex examples online
+
+---
+
+## reprex in Data Science Workflows
+
+- Highlight how reprex fits into the broader data science workflow
+- Showcase real-world examples of how it has improved reproducibility in projects
+
+---
+
+## Use Cases and Examples
+
+- Provide concrete examples of scenarios where reprex is particularly useful
+- Include before-and-after comparisons to highlight its impact on reproducibility
+
+---
+
+## Best Practices and Tips
+
+- Share recommended practices for creating effective and informative reprex examples
+- Offer tips for optimizing the use of reprex in different contexts
+
+---
+
+## Conclusion and Future Directions
+
+- Summarize the key takeaways from the presentation
+- Discuss potential future developments and improvements for reprex
+
+---
