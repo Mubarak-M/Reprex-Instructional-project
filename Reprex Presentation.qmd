@@ -42,29 +42,109 @@ editor: source
 
 ## Installation and Setup
 
+<<<<<<< HEAD
 -   Instructions for installing reprex
 -   Brief demonstration of package setup and configuration
+=======
+To get started with `reprex`, you'll need to install the package. Open your R console and run:
+
+```{r, echo=TRUE}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+# Install the reprex package from CRAN
+install.packages("reprex")
+```
+
+It also comes as a part of the package called tidyverse.
+
+Once installed, you can load the package using:
+
+```{r, echo=TRUE}
+# Load the reprex package
+library(reprex)
+```
+>>>>>>> 5736dbe908436ceae35d2d3fc2aaadbfa4948f5d
 
 ------------------------------------------------------------------------
 
 ## reprex Workflow
 
+<<<<<<< HEAD
 -   Overview of the typical workflow when using reprex
 -   Steps involved in creating a reproducible example
+=======
+The `reprex` package is designed to streamline the process of creating reproducible examples in R. It follows a simple workflow:
+
+1. **Identify the Problem**: Start with a specific R-related problem or question that you want to address.
+
+2. **Isolate the Code**: Isolate the relevant code in your script or R Markdown document.
+
+3. **Run reprex() Function**: Use the `reprex()` function to generate a reproducible example.
+
+4. **Review and Share**: The output will be formatted as a self-contained, runnable piece of R code. Share it with others to get help or discuss the problem.
+
+>>>>>>> 5736dbe908436ceae35d2d3fc2aaadbfa4948f5d
 
 ------------------------------------------------------------------------
 
-## Creating a Basic Reprex
+## Creating a Basic Reprex { .incremental }
 
+<<<<<<< HEAD
 -   Demonstrate how to create a simple reprex using a basic R script
 -   Emphasize the key components, including code, input, and output
+=======
+Let's walk through the process of creating a basic reprex:
+
+1. **Identify the Problem:** Suppose you want to calculate the mean of a vector `x`. 
+
+2. **Isolate the Code:** 
+
+```{r, echo=TRUE, include=TRUE}
+x <- c(1, 2, 3, NA, 5)
+mean(x, na.rm = TRUE)
+``` 
+
+3. **Run reprex() Function**:
+```{r, echo=TRUE}
+reprex({
+  x <- c(1, 2, 3, NA, 5)
+  mean(x, na.rm = TRUE)
+})
+```
+
+You can also just copy the code required and run reprex() function.
+
+4. **Review and Share:**
+The output will be a formatted reprex that you can share with others for discussion or troubleshooting.
+Remember, a good reprex includes not only the minimal code and dataset that produces the error, but also includes the necessary libraries and everything else needed to reproduce the error and your computing environment.
+>>>>>>> 5736dbe908436ceae35d2d3fc2aaadbfa4948f5d
 
 ------------------------------------------------------------------------
 
-## Advanced reprex Features
+## Advanced reprex Features #1
+Some of the reprex arguments are:
 
+<<<<<<< HEAD
 -   Explore advanced options, such as rendering to R Markdown or saving as a standalone file
 -   Discuss how these features enhance the reproducibility process
+=======
+**venue:** This determines the output format and style of the reprex. You can choose from “gh” (GitHub-Flavored Markdown), “r” (R script with commented output), “rtf” (Rich Text Format), “html” (HTML fragment), “slack” (Slack message), “so” (Stack Overflow Markdown), or “ds” (Discourse Markdown). The default is “gh”.
+
+**render:** This controls whether to actually run the code and produce output. If FALSE, only syntax highlighting is applied. The default is TRUE.
+
+**advertise:** This decides whether to include a footer that describes when and how the reprex was created. The default is TRUE for venues “gh”, “html”, “so”, and “ds”, and FALSE for “r”, “rtf”, and “slack”.
+session_info: This indicates whether to include session information at the end of the reprex, using sessioninfo::session_info() or sessionInfo(). The default is FALSE.
+
+---
+
+## Advanced reprex Features #2
+**style:** This specifies whether to re-style the code with the styler package. The default is FALSE.
+comment: This sets the prefix for commenting out the output. The default is “#>”.
+
+**tidyverse_quiet:** This determines whether to suppress startup messages from tidyverse packages. The default is TRUE.
+std_out_err: This decides whether to capture and display standard output and standard error. The default is FALSE.
+
+**html_preview:** This controls whether to show an HTML preview of the reprex in the RStudio viewer or the default browser. The default is TRUE.
+>>>>>>> 5736dbe908436ceae35d2d3fc2aaadbfa4948f5d
 
 ------------------------------------------------------------------------
 

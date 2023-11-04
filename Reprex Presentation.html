@@ -439,31 +439,75 @@ Yash Vora
 </section>
 <section id="installation-and-setup" class="slide level2">
 <h2>Installation and Setup</h2>
-<ul>
-<li class="fragment">Instructions for installing reprex</li>
-<li class="fragment">Brief demonstration of package setup and configuration</li>
-</ul>
+<p>To get started with <code>reprex</code>, you’ll need to install the package. Open your R console and run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># Install the reprex package from CRAN</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">install.packages</span>(<span class="st">"reprex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>package 'reprex' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+    C:\Users\yashm\AppData\Local\Temp\RtmpKmu9bR\downloaded_packages</code></pre>
+</div>
+</div>
+<p>It also comes as a part of the package called tidyverse.</p>
+<p>Once installed, you can load the package using:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Load the reprex package</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(reprex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="reprex-workflow" class="slide level2">
 <h2>reprex Workflow</h2>
-<ul>
-<li class="fragment">Overview of the typical workflow when using reprex</li>
-<li class="fragment">Steps involved in creating a reproducible example</li>
-</ul>
+<p>The <code>reprex</code> package is designed to streamline the process of creating reproducible examples in R. It follows a simple workflow:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Identify the Problem</strong>: Start with a specific R-related problem or question that you want to address.</p></li>
+<li class="fragment"><p><strong>Isolate the Code</strong>: Isolate the relevant code in your script or R Markdown document.</p></li>
+<li class="fragment"><p><strong>Run reprex() Function</strong>: Use the <code>reprex()</code> function to generate a reproducible example.</p></li>
+<li class="fragment"><p><strong>Review and Share</strong>: The output will be formatted as a self-contained, runnable piece of R code. Share it with others to get help or discuss the problem.</p></li>
+</ol>
 </section>
-<section id="creating-a-basic-reprex" class="slide level2">
+<section id="creating-a-basic-reprex" class="slide level2 incremental">
 <h2>Creating a Basic Reprex</h2>
-<ul>
-<li class="fragment">Demonstrate how to create a simple reprex using a basic R script</li>
-<li class="fragment">Emphasize the key components, including code, input, and output</li>
-</ul>
+<p>Let’s walk through the process of creating a basic reprex:</p>
+<ol type="1">
+<li class="fragment"><p><strong>Identify the Problem:</strong> Suppose you want to calculate the mean of a vector <code>x</code>.</p></li>
+<li class="fragment"><p><strong>Isolate the Code:</strong></p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2.75</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li class="fragment"><strong>Run reprex() Function</strong>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">reprex</span>({</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can also just copy the code required and run reprex() function.</p>
+<ol start="4" type="1">
+<li class="fragment"><strong>Review and Share:</strong> The output will be a formatted reprex that you can share with others for discussion or troubleshooting. Remember, a good reprex includes not only the minimal code and dataset that produces the error, but also includes the necessary libraries and everything else needed to reproduce the error and your computing environment.</li>
+</ol>
 </section>
-<section id="advanced-reprex-features" class="slide level2">
-<h2>Advanced reprex Features</h2>
-<ul>
-<li class="fragment">Explore advanced options, such as rendering to R Markdown or saving as a standalone file</li>
-<li class="fragment">Discuss how these features enhance the reproducibility process</li>
-</ul>
+<section id="advanced-reprex-features-1" class="slide level2">
+<h2>Advanced reprex Features #1</h2>
+<p>Some of the reprex arguments are:</p>
+<p><strong>venue:</strong> This determines the output format and style of the reprex. You can choose from “gh” (GitHub-Flavored Markdown), “r” (R script with commented output), “rtf” (Rich Text Format), “html” (HTML fragment), “slack” (Slack message), “so” (Stack Overflow Markdown), or “ds” (Discourse Markdown). The default is “gh”.</p>
+<p><strong>render:</strong> This controls whether to actually run the code and produce output. If FALSE, only syntax highlighting is applied. The default is TRUE.</p>
+<p><strong>advertise:</strong> This decides whether to include a footer that describes when and how the reprex was created. The default is TRUE for venues “gh”, “html”, “so”, and “ds”, and FALSE for “r”, “rtf”, and “slack”. session_info: This indicates whether to include session information at the end of the reprex, using sessioninfo::session_info() or sessionInfo(). The default is FALSE.</p>
+</section>
+<section id="advanced-reprex-features-2" class="slide level2">
+<h2>Advanced reprex Features #2</h2>
+<p><strong>style:</strong> This specifies whether to re-style the code with the styler package. The default is FALSE. comment: This sets the prefix for commenting out the output. The default is “#&gt;”.</p>
+<p><strong>tidyverse_quiet:</strong> This determines whether to suppress startup messages from tidyverse packages. The default is TRUE. std_out_err: This decides whether to capture and display standard output and standard error. The default is FALSE.</p>
+<p><strong>html_preview:</strong> This controls whether to show an HTML preview of the reprex in the RStudio viewer or the default browser. The default is TRUE.</p>
 </section>
 <section id="handling-external-dependencies" class="slide level2">
 <h2>Handling External Dependencies</h2>
