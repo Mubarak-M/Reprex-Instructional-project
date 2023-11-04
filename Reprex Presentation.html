@@ -439,45 +439,46 @@ Yash Vora
 </section>
 <section id="installation-and-setup" class="slide level2">
 <h2>Installation and Setup</h2>
+<!-- <<<<<<< HEAD -->
+<!-- -   Instructions for installing reprex -->
+<!-- -   Brief demonstration of package setup and configuration -->
 <p>To get started with <code>reprex</code>, you’ll need to install the package. Open your R console and run:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="co"># Install the reprex package from CRAN</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">install.packages</span>(<span class="st">"reprex"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>package 'reprex' successfully unpacked and MD5 sums checked
-
-The downloaded binary packages are in
-    C:\Users\yashm\AppData\Local\Temp\RtmpKmu9bR\downloaded_packages</code></pre>
-</div>
 </div>
 <p>It also comes as a part of the package called tidyverse.</p>
 <p>Once installed, you can load the package using:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Load the reprex package</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">library</span>(reprex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Load the reprex package</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(reprex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="reprex-workflow" class="slide level2">
 <h2>reprex Workflow</h2>
+<!-- <<<<<<< HEAD -->
+<!-- -   Overview of the typical workflow when using reprex -->
+<!-- -   Steps involved in creating a reproducible example -->
 <p>The <code>reprex</code> package is designed to streamline the process of creating reproducible examples in R. It follows a simple workflow:</p>
-<ol type="1">
-<li class="fragment"><p><strong>Identify the Problem</strong>: Start with a specific R-related problem or question that you want to address.</p></li>
-<li class="fragment"><p><strong>Isolate the Code</strong>: Isolate the relevant code in your script or R Markdown document.</p></li>
-<li class="fragment"><p><strong>Run reprex() Function</strong>: Use the <code>reprex()</code> function to generate a reproducible example.</p></li>
-<li class="fragment"><p><strong>Review and Share</strong>: The output will be formatted as a self-contained, runnable piece of R code. Share it with others to get help or discuss the problem.</p></li>
-</ol>
+<p><br> 1. <strong>Identify the Problem</strong>: Start with a specific R-related problem or question that you want to address.</p>
+<p><br> 2. <strong>Isolate the Code</strong>: Isolate the relevant code in your script or R Markdown document.</p>
+<p><br> 3. <strong>Run reprex() Function</strong>: Use the <code>reprex()</code> function to generate a reproducible example.</p>
+<p><br> 4. <strong>Review and Share</strong>: The output will be formatted as a self-contained, runnable piece of R code. Share it with others to get help or discuss the problem.</p>
 </section>
 <section id="creating-a-basic-reprex" class="slide level2 incremental">
 <h2>Creating a Basic Reprex</h2>
+<!-- <<<<<<< HEAD -->
+<!-- -   Demonstrate how to create a simple reprex using a basic R script -->
+<!-- -   Emphasize the key components, including code, input, and output -->
 <p>Let’s walk through the process of creating a basic reprex:</p>
 <ol type="1">
 <li class="fragment"><p><strong>Identify the Problem:</strong> Suppose you want to calculate the mean of a vector <code>x</code>.</p></li>
 <li class="fragment"><p><strong>Isolate the Code:</strong></p></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2.75</code></pre>
 </div>
@@ -486,10 +487,10 @@ The downloaded binary packages are in
 <li class="fragment"><strong>Run reprex() Function</strong>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">reprex</span>({</span>
-<span id="cb6-2"><a href="#cb6-2"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-4"><a href="#cb6-4"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">reprex</span>({</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="cn">NA</span>, <span class="dv">5</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also just copy the code required and run reprex() function.</p>
 <ol start="4" type="1">
@@ -499,6 +500,9 @@ The downloaded binary packages are in
 <section id="advanced-reprex-features-1" class="slide level2">
 <h2>Advanced reprex Features #1</h2>
 <p>Some of the reprex arguments are:</p>
+<!-- <<<<<<< HEAD -->
+<!-- -   Explore advanced options, such as rendering to R Markdown or saving as a standalone file -->
+<!-- -   Discuss how these features enhance the reproducibility process -->
 <p><strong>venue:</strong> This determines the output format and style of the reprex. You can choose from “gh” (GitHub-Flavored Markdown), “r” (R script with commented output), “rtf” (Rich Text Format), “html” (HTML fragment), “slack” (Slack message), “so” (Stack Overflow Markdown), or “ds” (Discourse Markdown). The default is “gh”.</p>
 <p><strong>render:</strong> This controls whether to actually run the code and produce output. If FALSE, only syntax highlighting is applied. The default is TRUE.</p>
 <p><strong>advertise:</strong> This decides whether to include a footer that describes when and how the reprex was created. The default is TRUE for venues “gh”, “html”, “so”, and “ds”, and FALSE for “r”, “rtf”, and “slack”. session_info: This indicates whether to include session information at the end of the reprex, using sessioninfo::session_info() or sessionInfo(). The default is FALSE.</p>
@@ -506,8 +510,8 @@ The downloaded binary packages are in
 <section id="advanced-reprex-features-2" class="slide level2">
 <h2>Advanced reprex Features #2</h2>
 <p><strong>style:</strong> This specifies whether to re-style the code with the styler package. The default is FALSE. comment: This sets the prefix for commenting out the output. The default is “#&gt;”.</p>
-<p><strong>tidyverse_quiet:</strong> This determines whether to suppress startup messages from tidyverse packages. The default is TRUE. std_out_err: This decides whether to capture and display standard output and standard error. The default is FALSE.</p>
-<p><strong>html_preview:</strong> This controls whether to show an HTML preview of the reprex in the RStudio viewer or the default browser. The default is TRUE.</p>
+<p><br> <strong>tidyverse_quiet:</strong> This determines whether to suppress startup messages from tidyverse packages. The default is TRUE. std_out_err: This decides whether to capture and display standard output and standard error. The default is FALSE.</p>
+<p><br> <strong>html_preview:</strong> This controls whether to show an HTML preview of the reprex in the RStudio viewer or the default browser. The default is TRUE.</p>
 </section>
 <section id="handling-external-dependencies" class="slide level2">
 <h2>Handling External Dependencies</h2>
@@ -537,19 +541,19 @@ The downloaded binary packages are in
 <p><br></p>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dplyr<span class="sc">::</span><span class="fu">tibble</span>(</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="at">text =</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"4.3"</span>, <span class="st">"#1.23"</span>, <span class="st">"1,234"</span>),</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="st">`</span><span class="at">as.numeric(text)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(text),</span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="st">`</span><span class="at">parse_number(text)</span><span class="st">`</span> <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(text)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; Warning in eval_tidy(xs[[j]], mask): NAs introduced by coercion</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt;   text  `as.numeric(text)` `parse_number(text)`</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt;                &lt;dbl&gt;</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 1 2                    2                   2   </span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 2 4.3                  4.3                 4.3 </span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 3 #1.23               NA                   1.23</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 4 1,234               NA                1234</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>dplyr<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="at">text =</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"4.3"</span>, <span class="st">"#1.23"</span>, <span class="st">"1,234"</span>),</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="st">`</span><span class="at">as.numeric(text)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(text),</span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="st">`</span><span class="at">parse_number(text)</span><span class="st">`</span> <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(text)</span>
+<span id="cb6-5"><a href="#cb6-5"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; Warning in eval_tidy(xs[[j]], mask): NAs introduced by coercion</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt;   text  `as.numeric(text)` `parse_number(text)`</span></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt;                &lt;dbl&gt;</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; 1 2                    2                   2   </span></span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="co">#&gt; 2 4.3                  4.3                 4.3 </span></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co">#&gt; 3 #1.23               NA                   1.23</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="co">#&gt; 4 1,234               NA                1234</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -577,9 +581,9 @@ The downloaded binary packages are in
 <div class="r-stack">
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
-<span id="cb2-2"><a href="#cb2-2"></a></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mubarak/mysecret/path/Instructional Project"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mubarak/mysecret/path/Instructional Project"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li class="fragment">If you are always using <code>setwd()</code>,it is beneficial to transition towards <a href="https://r4ds.hadley.nz/workflow-scripts.html">R-project workflow</a>.</li>
@@ -640,17 +644,17 @@ The downloaded binary packages are in
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb3-2"><a href="#cb3-2"></a></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">tribble</span>(</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="dv">1</span>, <span class="dv">2</span>, </span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="dv">2</span>, <span class="dv">4</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="dv">1</span>, <span class="dv">2</span>, </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="dv">2</span>, <span class="dv">4</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -659,9 +663,9 @@ The downloaded binary packages are in
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
-<span id="cb5-2"><a href="#cb5-2"></a>                    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
-<span id="cb5-3"><a href="#cb5-3"></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb10-2"><a href="#cb10-2"></a>                    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb10-3"><a href="#cb10-3"></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -677,11 +681,11 @@ The downloaded binary packages are in
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">dput</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">dput</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>datapasta<span class="sc">::</span><span class="fu">dpasta</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>datapasta<span class="sc">::</span><span class="fu">dpasta</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -691,20 +695,20 @@ The downloaded binary packages are in
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, </span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>), <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, </span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>), <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, </span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>), <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, </span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)), <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, 10L), <span class="at">class =</span> <span class="st">"data.frame"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, </span>
+<span id="cb13-2"><a href="#cb13-2"></a><span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>), <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, </span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>), <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, </span>
+<span id="cb13-4"><a href="#cb13-4"></a><span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>), <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, </span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)), <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, 10L), <span class="at">class =</span> <span class="st">"data.frame"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">data.frame</span>(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>),</span>
-<span id="cb9-3"><a href="#cb9-3"></a>   <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, <span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>),</span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>),</span>
-<span id="cb9-5"><a href="#cb9-5"></a>   <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)</span>
-<span id="cb9-6"><a href="#cb9-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>),</span>
+<span id="cb14-3"><a href="#cb14-3"></a>   <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, <span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>),</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>),</span>
+<span id="cb14-5"><a href="#cb14-5"></a>   <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
