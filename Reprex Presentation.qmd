@@ -17,103 +17,296 @@ format:
 editor: source
 ---
 
-
----
+------------------------------------------------------------------------
 
 ## Introduction to Reproducibility
 
-- Define reproducibility in the context of data analysis and programming
-- Highlight the importance of reproducibility in research and data science
+-   Define reproducibility in the context of data analysis and programming
+-   Highlight the importance of reproducibility in research and data science
 
----
+------------------------------------------------------------------------
 
 ## Motivation for reprex
 
-- Discuss common challenges faced in creating reproducible examples in R
-- Introduce reprex as a solution to these challenges
+-   Discuss common challenges faced in creating reproducible examples in R
+-   Introduce reprex as a solution to these challenges
 
----
+------------------------------------------------------------------------
 
 ## What is reprex?
 
-- Definition and purpose of reprex
-- Briefly mention the package's history and development
+-   Definition and purpose of reprex
+-   Briefly mention the package's history and development
 
----
+------------------------------------------------------------------------
 
 ## Installation and Setup
 
-- Instructions for installing reprex
-- Brief demonstration of package setup and configuration
+-   Instructions for installing reprex
+-   Brief demonstration of package setup and configuration
 
----
+------------------------------------------------------------------------
 
 ## reprex Workflow
 
-- Overview of the typical workflow when using reprex
-- Steps involved in creating a reproducible example
+-   Overview of the typical workflow when using reprex
+-   Steps involved in creating a reproducible example
 
----
+------------------------------------------------------------------------
 
 ## Creating a Basic Reprex
 
-- Demonstrate how to create a simple reprex using a basic R script
-- Emphasize the key components, including code, input, and output
+-   Demonstrate how to create a simple reprex using a basic R script
+-   Emphasize the key components, including code, input, and output
 
----
+------------------------------------------------------------------------
 
 ## Advanced reprex Features
 
-- Explore advanced options, such as rendering to R Markdown or saving as a standalone file
-- Discuss how these features enhance the reproducibility process
+-   Explore advanced options, such as rendering to R Markdown or saving as a standalone file
+-   Discuss how these features enhance the reproducibility process
 
----
+------------------------------------------------------------------------
 
 ## Handling External Dependencies
 
-- Explain how reprex handles dependencies, such as packages and data files
-- Provide examples of including necessary resources in a reprex
+-   Explain how reprex handles dependencies, such as packages and data files
+-   Provide examples of including necessary resources in a reprex
 
----
+------------------------------------------------------------------------
 
 ## Customizing reprex Behavior
 
-- Discuss options for customizing the behavior of reprex
-- Illustrate how to set specific parameters to meet individual requirements
+-   Discuss options for customizing the behavior of reprex
+-   Illustrate how to set specific parameters to meet individual requirements
 
----
+------------------------------------------------------------------------
 
 ## Sharing and Publishing Reprex
 
-- Walk through the process of sharing a reprex with others
-- Discuss best practices for publishing reprex examples online
+-   Walk through the process of sharing a reprex with others
+-   Discuss best practices for publishing reprex examples online
 
----
+------------------------------------------------------------------------
 
 ## reprex in Data Science Workflows
 
-- Highlight how reprex fits into the broader data science workflow
-- Showcase real-world examples of how it has improved reproducibility in projects
+Reprex fits into the data science workflow as a tool to create reproducible proof of concepts or ideas.
 
----
+Arguing for the use of `parse_number` instead of `as.numeric`
 
-## Use Cases and Examples
+<br>
 
-- Provide concrete examples of scenarios where reprex is particularly useful
-- Include before-and-after comparisons to highlight its impact on reproducibility
+::: fragment
+```{r, eval=FALSE, echo=TRUE}
+dplyr::tibble(
+text = c("2", "4.3", "#1.23", "1,234"),
+`as.numeric(text)` = as.numeric(text),
+`parse_number(text)` = readr::parse_number(text)
+)
+#> Warning in eval_tidy(xs[[j]], mask): NAs introduced by coercion
+#> # A tibble: 4 × 3
+#>   text  `as.numeric(text)` `parse_number(text)`
+#>   <chr>              <dbl>                <dbl>
+#> 1 2                    2                   2   
+#> 2 4.3                  4.3                 4.3 
+#> 3 #1.23               NA                   1.23
+#> 4 1,234               NA                1234
+```
+:::
 
----
+------------------------------------------------------------------------
 
 ## Best Practices and Tips
 
-- Share recommended practices for creating effective and informative reprex examples
-- Offer tips for optimizing the use of reprex in different contexts
+1.  Only include necessary code
 
----
+<br>
 
-## Conclusion and Future Directions
+2.  Provide required package
 
-- Summarize the key takeaways from the presentation
-- Discuss potential future developments and improvements for reprex
+<br>
 
----
+3.  Provide required dataset
+
+<br>
+
+4.  Provide session info!
+
+## Providing necessary code
+
+**Leave other people's computer alone**
+
+::: r-stack
+::: fragment
+```{r, eval=FALSE, echo=TRUE}
+
+rm(list = ls())
+
+setwd("C:/Users/mubarak/mysecret/path/Instructional Project")
+```
+
+-   If you are always using `setwd()`,it is beneficial to transition towards [R-project workflow](https://r4ds.hadley.nz/workflow-scripts.html).
+:::
+
+![](pcfire.png){.fragment}
+:::
+
+**unsure about which code to include?**
+
+1.  Forward coding: Include one line of code until it breaks.\
+
+2.  Backward coding: Remove one line of code until it works, then add the line producing the error.
+
+## Providing required library
+
+**Use library() instead of require()**
+
+-   `Library` throws an error when the user does not have the library installed and they know what to do.
+
+<br>
+
+-   `Require` provides a warning and code continues to run until you encounter an error.
+
+<br>
+
+-   **Solving the problem of missing package**
+
+-   `if (!require(ggplot2)) install.packages("ggplot2") library(ggplot2)`👎
+
+-   **Avoid functions that change someone's computer**
+
+## Providing required dataset
+
+**Avoid csv file** `data <- read.csv(projectdata.csv)`
+
+-   ![](no_csv.png)
+
+## Providing required dataset
+
+**Use built-in data in R**
+
+1.  `mtcars`
+2.  `iris`
+3.  `airquality`
+4.  `quakes`
+
+<br>
+
+-   These represent only a few of the numerous built-in datasets available in R. You can access a comprehensive list of the built-in datasets with the `data()` function.
+
+-   Modify the dataset to suite your specific need.
+
+## Providing required dataset
+
+**Create fake data**
+
+**Using tibble**
+
+::: columns
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+library(dplyr)
+
+tibble(x = c(1, 2), y = c(2, 4))
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+tribble(
+  ~x, ~y,
+  1, 2, 
+  2, 4
+)
+```
+:::
+:::
+
+<br>
+
+**Using data.frame**
+
+::: columns
+::: {.column width="50%"}
+```{r, eval=FALSE, echo=TRUE}
+mydata = data.frame(x = c(1,2),
+                    y = c(2, 4))
+mydata
+```
+:::
+:::
+
+## Providing required dataset
+
+**Sample of your data**
+
+Sometimes you want to provide your exact data.
+
+-   Share a subset of your dataset without a need for a csv file using `dput()` or `dpasta()` from `datapasta` package.
+
+::: fragment
+::: columns
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+dput(iris[1:10,1:4])
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+datapasta::dpasta(iris[1:10,1:4])
+```
+:::
+:::
+:::
+
+<br>
+
+::: fragment
+::: columns
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+structure(list(Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4, 4.6, 
+5, 4.4, 4.9), Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9, 3.4, 
+3.4, 2.9, 3.1), Petal.Length = c(1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 
+1.4, 1.5, 1.4, 1.5), Petal.Width = c(0.2, 0.2, 0.2, 0.2, 0.2, 
+0.4, 0.3, 0.2, 0.2, 0.1)), row.names = c(NA, 10L), class = "data.frame")
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo=TRUE, eval=FALSE}
+data.frame(
+  Sepal.Length = c(5.1, 4.9, 4.7, 4.6, 5, 5.4, 4.6, 5, 4.4, 4.9),
+   Sepal.Width = c(3.5, 3, 3.2, 3.1, 3.6, 3.9, 3.4, 3.4, 2.9, 3.1),
+  Petal.Length = c(1.4, 1.4, 1.3, 1.5, 1.4, 1.7, 1.4, 1.5, 1.4, 1.5),
+   Petal.Width = c(0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.3, 0.2, 0.2, 0.1)
+)
+```
+:::
+:::
+:::
+
+## Provide session info!
+
+Session info contains many technical details about your current R session, including the operating system, the R version being used, and the versions of all packages installed.
+
+<br> While sometimes helpful for technical troubleshooting, in many situations the extensive details beyond the core R version provide little added insight but require filtering out the clutter.
+
+<br> Setting the `session_info` argument to true in `reprex()` include your current r session info in the reprex output. When venue is "gh", the session info is wrapped in a collapsible detail tag.
+
+## Resources
+
+-   [How to use reprex](https://reprex.tidyverse.org/articles/learn-reprex.html)
+
+<br>
+
+-   [Make a reprex .... please](https://make-a-reprex-please.netlify.app/#1)
+
+<br>
+
+-   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1)
+
+
+------------------------------------------------------------------------

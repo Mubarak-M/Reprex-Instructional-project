@@ -28,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="Reprex Presentation_files/libs/revealjs/dist/theme/quarto.css">
   <link rel="stylesheet" href="logo.css">
@@ -423,30 +488,202 @@ Yash Vora
 </section>
 <section id="reprex-in-data-science-workflows" class="slide level2">
 <h2>reprex in Data Science Workflows</h2>
-<ul>
-<li class="fragment">Highlight how reprex fits into the broader data science workflow</li>
-<li class="fragment">Showcase real-world examples of how it has improved reproducibility in projects</li>
-</ul>
-</section>
-<section id="use-cases-and-examples" class="slide level2">
-<h2>Use Cases and Examples</h2>
-<ul>
-<li class="fragment">Provide concrete examples of scenarios where reprex is particularly useful</li>
-<li class="fragment">Include before-and-after comparisons to highlight its impact on reproducibility</li>
-</ul>
+<p>Reprex fits into the data science workflow as a tool to create reproducible proof of concepts or ideas.</p>
+<p>Arguing for the use of <code>parse_number</code> instead of <code>as.numeric</code></p>
+<p><br></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>dplyr<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="at">text =</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"4.3"</span>, <span class="st">"#1.23"</span>, <span class="st">"1,234"</span>),</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="st">`</span><span class="at">as.numeric(text)</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.numeric</span>(text),</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="st">`</span><span class="at">parse_number(text)</span><span class="st">`</span> <span class="ot">=</span> readr<span class="sc">::</span><span class="fu">parse_number</span>(text)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; Warning in eval_tidy(xs[[j]], mask): NAs introduced by coercion</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; # A tibble: 4 × 3</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt;   text  `as.numeric(text)` `parse_number(text)`</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt;   &lt;chr&gt;              &lt;dbl&gt;                &lt;dbl&gt;</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 1 2                    2                   2   </span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 2 4.3                  4.3                 4.3 </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 3 #1.23               NA                   1.23</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 4 1,234               NA                1234</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
 </section>
 <section id="best-practices-and-tips" class="slide level2">
 <h2>Best Practices and Tips</h2>
+<ol type="1">
+<li class="fragment">Only include necessary code</li>
+</ol>
+<p><br></p>
+<ol start="2" type="1">
+<li class="fragment">Provide required package</li>
+</ol>
+<p><br></p>
+<ol start="3" type="1">
+<li class="fragment">Provide required dataset</li>
+</ol>
+<p><br></p>
+<ol start="4" type="1">
+<li class="fragment">Provide session info!</li>
+</ol>
+</section>
+<section id="providing-necessary-code" class="slide level2">
+<h2>Providing necessary code</h2>
+<p><strong>Leave other people’s computer alone</strong></p>
+<div class="r-stack">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">rm</span>(<span class="at">list =</span> <span class="fu">ls</span>())</span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">setwd</span>(<span class="st">"C:/Users/mubarak/mysecret/path/Instructional Project"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <ul>
-<li class="fragment">Share recommended practices for creating effective and informative reprex examples</li>
-<li class="fragment">Offer tips for optimizing the use of reprex in different contexts</li>
+<li class="fragment">If you are always using <code>setwd()</code>,it is beneficial to transition towards <a href="https://r4ds.hadley.nz/workflow-scripts.html">R-project workflow</a>.</li>
+</ul>
+</div>
+<p><img data-src="pcfire.png" class="fragment"></p>
+</div>
+<p><strong>unsure about which code to include?</strong></p>
+<ol type="1">
+<li class="fragment"><p>Forward coding: Include one line of code until it breaks.<br>
+</p></li>
+<li class="fragment"><p>Backward coding: Remove one line of code until it works, then add the line producing the error.</p></li>
+</ol>
+</section>
+<section id="providing-required-library" class="slide level2">
+<h2>Providing required library</h2>
+<p><strong>Use library() instead of require()</strong></p>
+<ul>
+<li class="fragment"><code>Library</code> throws an error when the user does not have the library installed and they know what to do.</li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><code>Require</code> provides a warning and code continues to run until you encounter an error.</li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><p><strong>Solving the problem of missing package</strong></p></li>
+<li class="fragment"><p><code>if (!require(ggplot2)) install.packages("ggplot2") library(ggplot2)</code>👎</p></li>
+<li class="fragment"><p><strong>Avoid functions that change someone’s computer</strong></p></li>
 </ul>
 </section>
-<section id="conclusion-and-future-directions" class="slide level2">
-<h2>Conclusion and Future Directions</h2>
+<section id="providing-required-dataset" class="slide level2">
+<h2>Providing required dataset</h2>
+<p><strong>Avoid csv file</strong> <code>data &lt;- read.csv(projectdata.csv)</code></p>
 <ul>
-<li class="fragment">Summarize the key takeaways from the presentation</li>
-<li class="fragment">Discuss potential future developments and improvements for reprex</li>
+<li class="fragment"><img data-src="no_csv.png"></li>
+</ul>
+</section>
+<section id="providing-required-dataset-1" class="slide level2">
+<h2>Providing required dataset</h2>
+<p><strong>Use built-in data in R</strong></p>
+<ol type="1">
+<li class="fragment"><code>mtcars</code></li>
+<li class="fragment"><code>iris</code></li>
+<li class="fragment"><code>airquality</code></li>
+<li class="fragment"><code>quakes</code></li>
+</ol>
+<p><br></p>
+<ul>
+<li class="fragment"><p>These represent only a few of the numerous built-in datasets available in R. You can access a comprehensive list of the built-in datasets with the <code>data()</code> function.</p></li>
+<li class="fragment"><p>Modify the dataset to suite your specific need.</p></li>
+</ul>
+</section>
+<section id="providing-required-dataset-2" class="slide level2">
+<h2>Providing required dataset</h2>
+<p><strong>Create fake data</strong></p>
+<p><strong>Using tibble</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-2"><a href="#cb3-2"></a></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">tribble</span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="dv">1</span>, <span class="dv">2</span>, </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="dv">2</span>, <span class="dv">4</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><strong>Using data.frame</strong></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>mydata <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>),</span>
+<span id="cb5-2"><a href="#cb5-2"></a>                    <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>))</span>
+<span id="cb5-3"><a href="#cb5-3"></a>mydata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="providing-required-dataset-3" class="slide level2">
+<h2>Providing required dataset</h2>
+<p><strong>Sample of your data</strong></p>
+<p>Sometimes you want to provide your exact data.</p>
+<ul>
+<li class="fragment">Share a subset of your dataset without a need for a csv file using <code>dput()</code> or <code>dpasta()</code> from <code>datapasta</code> package.</li>
+</ul>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">dput</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>datapasta<span class="sc">::</span><span class="fu">dpasta</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">structure</span>(<span class="fu">list</span>(<span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, </span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>), <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, </span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>), <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, </span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>), <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, </span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)), <span class="at">row.names =</span> <span class="fu">c</span>(<span class="cn">NA</span>, 10L), <span class="at">class =</span> <span class="st">"data.frame"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">data.frame</span>(</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="at">Sepal.Length =</span> <span class="fu">c</span>(<span class="fl">5.1</span>, <span class="fl">4.9</span>, <span class="fl">4.7</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">5.4</span>, <span class="fl">4.6</span>, <span class="dv">5</span>, <span class="fl">4.4</span>, <span class="fl">4.9</span>),</span>
+<span id="cb9-3"><a href="#cb9-3"></a>   <span class="at">Sepal.Width =</span> <span class="fu">c</span>(<span class="fl">3.5</span>, <span class="dv">3</span>, <span class="fl">3.2</span>, <span class="fl">3.1</span>, <span class="fl">3.6</span>, <span class="fl">3.9</span>, <span class="fl">3.4</span>, <span class="fl">3.4</span>, <span class="fl">2.9</span>, <span class="fl">3.1</span>),</span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="at">Petal.Length =</span> <span class="fu">c</span>(<span class="fl">1.4</span>, <span class="fl">1.4</span>, <span class="fl">1.3</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.7</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>, <span class="fl">1.4</span>, <span class="fl">1.5</span>),</span>
+<span id="cb9-5"><a href="#cb9-5"></a>   <span class="at">Petal.Width =</span> <span class="fu">c</span>(<span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.4</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="fl">0.2</span>, <span class="fl">0.1</span>)</span>
+<span id="cb9-6"><a href="#cb9-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="provide-session-info" class="slide level2">
+<h2>Provide session info!</h2>
+<p>Session info contains many technical details about your current R session, including the operating system, the R version being used, and the versions of all packages installed.</p>
+<p><br> While sometimes helpful for technical troubleshooting, in many situations the extensive details beyond the core R version provide little added insight but require filtering out the clutter.</p>
+<p><br> Setting the <code>session_info</code> argument to true in <code>reprex()</code> include your current r session info in the reprex output. When venue is “gh”, the session info is wrapped in a collapsible detail tag.</p>
+</section>
+<section id="resources" class="slide level2">
+<h2>Resources</h2>
+<ul>
+<li class="fragment"><a href="https://reprex.tidyverse.org/articles/learn-reprex.html">How to use reprex</a></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><a href="https://make-a-reprex-please.netlify.app/#1">Make a reprex …. please</a></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><a href="https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1">How to reprex</a></li>
 </ul>
 </section>
 <section class="slide level2">
@@ -667,6 +904,44 @@ Yash Vora
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
