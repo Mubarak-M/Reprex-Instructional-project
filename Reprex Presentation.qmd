@@ -481,6 +481,3 @@ Session info contains many technical details about your current R session, inclu
 <br>
 
 -   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1)
-
-
-------------------------------------------------------------------------
