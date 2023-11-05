@@ -64,6 +64,7 @@ A solution to these problems??
 -   Prepare Reproducible Example Code via the Clipboard
 
 ![](reprex-logo.png){width="80%" fig-align="center"}
+
 ------------------------------------------------------------------------
 
 ## Installation and Setup
