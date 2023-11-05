@@ -179,24 +179,86 @@ std_out_err: This decides whether to capture and display standard output and sta
 
 ------------------------------------------------------------------------
 
-## Handling External Dependencies
+## Applicable Example
 
--   Explain how reprex handles dependencies, such as packages and data files
--   Provide examples of including necessary resources in a reprex
+```{r, echo=TRUE}
+suppressMessages(library(ExtDist))
+set.seed(5400)
+
+lambda = 1
+k = 2
+n = 1000
+
+Ulist <- runif(n, 0, 1)
+Xlist <- lambda*((-log(1-Ulist))^(1/k))
+
+par(mfrow = c(1,2))
+
+hist(Xlist)
+plot(pWeibull(ppoints(n), shape = k, scale = lambda),
+     sort(Xlist),
+     xlab = "Theoretical Quantiles",
+     ylab = "Sample Quantiles",
+     main = "Q-Q plot for Weibull Distribution")
+abline(0, 1)
+```
 
 ------------------------------------------------------------------------
 
-## Customizing reprex Behavior
+## Tip: Setup
 
--   Discuss options for customizing the behavior of reprex
--   Illustrate how to set specific parameters to meet individual requirements
+-   Do once per R session
+
+```{r, echo=TRUE, eval=FALSE}
+library(reprex)
+```
+
+-   Or... do once per machine
+
+```{r, echo=TRUE, eval=FALSE}
+## Put this in your ~/.Rprofile to make reprex available 24/7
+if (interactive()) {
+  suppressMessages(require(reprex))
+}
+
+## Do NOT do this with non-workflow packages such as dplyr, ggplot2, etc!
+
+## One way to create or open your ~/.Rprofile
+## install.packages("usethis")
+usethis::edit_r_profile()
+```
 
 ------------------------------------------------------------------------
 
-## Sharing and Publishing Reprex
+## Tip: Restyling Code
 
--   Walk through the process of sharing a reprex with others
--   Discuss best practices for publishing reprex examples online
+```{r, echo=TRUE, eval = FALSE}
+reprex(
+  input = c(
+    'if (True) "true branch" else {',
+    '"else branch"',
+    '             }'
+  ),
+  style = FALSE
+)
+```
+
+![](restyle_false.png){width="80%" fig-align="center"}
+
+<br>
+
+```{r, echo=TRUE, eval = FALSE}
+reprex(
+  input = c(
+    'if (True) "true branch" else {',
+    '"else branch"',
+    '             }'
+  ),
+  style = TRUE
+)
+```
+
+![](restyle_true.png){width="80%" fig-align="center"}
 
 ------------------------------------------------------------------------
 
