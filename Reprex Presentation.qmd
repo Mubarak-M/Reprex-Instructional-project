@@ -21,23 +21,49 @@ editor: source
 
 ## Introduction to Reproducibility
 
--   Define reproducibility in the context of data analysis and programming
--   Highlight the importance of reproducibility in research and data science
+-   Reproducibility is the documenting of all data and code in a manner that the respective computation can be executed with the same results
+
+-   Applies to all domains of scientific research
+
+-   Computational Reproducibility of work is crucial for collaboration and learning
+
+-   Replicability/Repeatability vs. Reproducibility 
+
+![](reproducibility-triangle.png){width="100%" fig-align="right"}
+
+<!-- replicable means the same conclusions or outcomes can be found using slightly different data or processes. Maybe mention the "Replication Crisis" -->
+<!-- reproduce is when the exact same methods are used yielding the same results. this would be the case of what reprex is aiming to do -->
 
 ------------------------------------------------------------------------
 
-## Motivation for reprex
+## Motivation for Reproducibility { .incremental }
 
--   Discuss common challenges faced in creating reproducible examples in R
--   Introduce reprex as a solution to these challenges
+The sharing and communicating of code is complex in modern day
+
+-   different locations
+-   innovation
+-   office vs. remote vs. home work
+
+Reproducibility is essential for...
+
+-   error/begugging code
+-   educational and industry settings
+-   code development
+-   webinars
+
+A solution to these problems??
+
+-   the reprex package in R
 
 ------------------------------------------------------------------------
 
 ## What is reprex?
 
--   Definition and purpose of reprex
--   Briefly mention the package's history and development
+-   {repr}oducible {ex}ample
+-   Made and by Jennifer Bryan et al. in 2018
+-   Prepare Reproducible Example Code via the Clipboard
 
+![](reprex-logo.png){width="80%" fig-align="center"}
 ------------------------------------------------------------------------
 
 ## Installation and Setup
