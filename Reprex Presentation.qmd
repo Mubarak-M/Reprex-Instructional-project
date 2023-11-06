@@ -20,13 +20,15 @@ editor: source
 
 ## Introduction to Reproducibility
 
--   Reproducibility is the documenting of all data and code in a manner that the respective computation can be executed with the same results
+-   Reproducibility is the documenting of all methodology in a manner that the respective work can be executed with the same results
 
 -   Applies to all domains of scientific research
 
 -   Computational Reproducibility of work is crucial for collaboration and learning
 
 -   Replicability/Repeatability vs. Reproducibility
+
+-   Reproducible example vs. Reproducibility
 
 ![](reproducibility-triangle.png){width="100%" fig-align="right"}
 
@@ -36,7 +38,11 @@ editor: source
 
 ------------------------------------------------------------------------
 
+<<<<<<< HEAD
 ## Motivation for Reproducibility {.incremental}
+=======
+## Motivation for Reproducible Examples { .incremental }
+>>>>>>> 2b8954e2779a577cb65513d17e966b5a56dd799f
 
 The sharing and communicating of code is complex in modern day
 
@@ -44,7 +50,7 @@ The sharing and communicating of code is complex in modern day
 -   innovation
 -   office vs. remote vs. home work
 
-Reproducibility is essential for...
+Reproducible examples are essential for...
 
 -   error/begugging code
 -   educational and industry settings
@@ -60,7 +66,7 @@ A solution to these problems??
 ## What is reprex?
 
 -   {repr}oducible {ex}ample
--   Made and by Jennifer Bryan et al. in 2018
+-   Made by Jennifer Bryan et al. in 2018
 -   Prepare Reproducible Example Code via the Clipboard
 
 ![](reprex-logo.png){width="80%" fig-align="center"}
@@ -484,9 +490,13 @@ Session info contains many technical details about your current R session, inclu
 
 5. Muldoon, A. (2021). How to reprex. Retrieved November 6, 2023, from https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1
 
+<<<<<<< HEAD
 [Slide Code on Github](https://github.com/Mubarak-M/Reprex-Instructional-project)
 
 <!-- -   [Make a reprex .... please](https://make-a-reprex-please.netlify.app/#1) -->
 
 <!-- -   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1) -->
 :::
+=======
+-   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1)
+>>>>>>> 2b8954e2779a577cb65513d17e966b5a56dd799f
