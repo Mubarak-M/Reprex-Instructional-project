@@ -15,10 +15,8 @@ format:
     logo: iowa.png
     css: logo.css
 editor: source
+
 ---
-
-##
-
 
 ## Introduction to Reproducibility
 
@@ -92,7 +90,7 @@ install.packages("reprex")
 -   Once installed, you can load the package using:
 
 ::: fragment
-```{r, echo=TRUE, eval=FALSE}
+```{r, echo=TRUE}
 # Load the reprex package
 library(reprex)
 ```
@@ -173,6 +171,7 @@ reprex({
 -   **render:** This controls whether to actually run the code and produce output. If FALSE, only syntax highlighting is applied. The default is TRUE.
 
 <br>
+
 -   **advertise:** This decides whether to include a footer that describes when and how the reprex was created. The default is TRUE for venues "gh", "html", "so", and "ds", and FALSE for "r", "rtf", and "slack". session_info: This indicates whether to include session information at the end of the reprex, using sessioninfo::session_info() or sessionInfo(). The default is FALSE.
 
 ------------------------------------------------------------------------
@@ -360,10 +359,6 @@ setwd("C:/Users/mubarak/mysecret/path/Instructional Project")
 
 **Avoid csv file** `data <- read.csv(projectdata.csv)`
 
--   ![](no_csv.png)
-
-## Providing required dataset
-
 **Use built-in data in R**
 
 1.  `mtcars`
@@ -476,14 +471,22 @@ Session info contains many technical details about your current R session, inclu
 
 <br> Setting the `session_info` argument to true in `reprex()` include your current r session info in the reprex output. When venue is "gh", the session info is wrapped in a collapsible detail tag.
 
-## Resources
+## References
+::: {.nonincremental}
+<!-- [How to use reprex](https://reprex.tidyverse.org/articles/learn-reprex.html) -->
+1. Bryan, J. (2018). reprex: Reproducible Examples with R. Speaker Deck. Retrieved November 6, 2023, from https://speakerdeck.com/jennybc/reprex-reproducible-examples-with-r
 
--   [How to use reprex](https://reprex.tidyverse.org/articles/learn-reprex.html)
+2. Bryan, J., Hester, J., Robinson, D., Wickham, H., & Dervieux, C. (2022). reprex: Prepare Reproducible Example Code via the Clipboard (Version 2.0.2) [Manual]. Retrieved from https://CRAN.R-project.org/package=reprex
 
-<br>
+3. Gelfand, S. (2021). Make-a-Reprex-Please. Retrieved November 6, 2023, from https://make-a-reprex-please.netlify.app/#1
 
--   [Make a reprex .... please](https://make-a-reprex-please.netlify.app/#1)
+4. How to use reprex. (2018). Reprex.tidyverse.org. Retrieved November 6, 2023, from https://reprex.tidyverse.org/articles/learn-reprex.html
 
-<br>
+5. Muldoon, A. (2021). How to reprex. Retrieved November 6, 2023, from https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1
 
--   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1)
+[Slide Code on Github](https://github.com/Mubarak-M/Reprex-Instructional-project)
+
+<!-- -   [Make a reprex .... please](https://make-a-reprex-please.netlify.app/#1) -->
+
+<!-- -   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1) -->
+:::
