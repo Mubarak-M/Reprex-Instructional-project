@@ -181,29 +181,20 @@ comment: This sets the prefix for commenting out the output. The default is “#
 
 ------------------------------------------------------------------------
 
-## Applicable Example
+## Example
 
+::: fragment
 ```{r, echo=TRUE}
-suppressMessages(library(ExtDist))
-set.seed(5400)
+library(ggplot2)
+#Library()
+#Library()
+#Library()
+data <- read.csv("example_data.csv")
 
-lambda = 1
-k = 2
-n = 1000
+names(data)
 
-Ulist <- runif(n, 0, 1)
-Xlist <- lambda*((-log(1-Ulist))^(1/k))
-
-par(mfrow = c(1,2))
-
-hist(Xlist)
-plot(pWeibull(ppoints(n), shape = k, scale = lambda),
-     sort(Xlist),
-     xlab = "Theoretical Quantiles",
-     ylab = "Sample Quantiles",
-     main = "Q-Q plot for Weibull Distribution")
-abline(0, 1)
 ```
+:::
 
 ------------------------------------------------------------------------
 
@@ -211,12 +202,15 @@ abline(0, 1)
 
 -   Do once per R session
 
+:::fragment
 ```{r, echo=TRUE, eval=FALSE}
 library(reprex)
 ```
+:::
 
 -   Or... do once per machine
 
+:::fragment
 ```{r, echo=TRUE, eval=FALSE}
 ## Put this in your ~/.Rprofile to make reprex available 24/7
 if (interactive()) {
@@ -229,6 +223,7 @@ if (interactive()) {
 ## install.packages("usethis")
 usethis::edit_r_profile()
 ```
+:::
 
 ------------------------------------------------------------------------
 
@@ -245,8 +240,6 @@ reprex(
 )
 ```
 
-![](restyle_false.png){width="80%" fig-align="center"}
-
 <br>
 
 ```{r, echo=TRUE, eval = FALSE}
@@ -259,8 +252,6 @@ reprex(
   style = TRUE
 )
 ```
-
-![](restyle_true.png){width="80%" fig-align="center"}
 
 ------------------------------------------------------------------------
 
