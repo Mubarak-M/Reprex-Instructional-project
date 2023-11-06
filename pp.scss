@@ -8,7 +8,7 @@
 // overridden by the super-theme
 
 // Background of the presentation
-$backgroundColor:#ffffff ;
+$backgroundColor: #ffffff;
 
 // Primary/body text
 //$mainFont: 'Jost', sans-serif;
@@ -38,23 +38,17 @@ $codeFont: monospace;
 
 // Links and actions
 $linkColor: #975443;
-$linkColorHover: darken( $linkColor, 20% );
+$linkColorHover: darken($linkColor, 20%);
 
 // Text selection
 $selectionBackgroundColor: #423c3f;
 $selectionColor: #fff;
 
 // start using css here
-// #title-slide > h1 {
-//   color: white;
-// }
-
-// #title-slide .author {
-//  color: white;
-//}
-
 #title-slide {
-  top: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #title-slide > .author:first-of-type {

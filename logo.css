@@ -2,9 +2,9 @@
   display: block;
   position: fixed;
   bottom: 12px !important;
-  right: unset !important;
+  right: 12px !important;
   top: unset;
-  left: 12px;
+  left: unset;
   height: 100px !important;
   width: 100x !important;
   max-width: unset !important;
