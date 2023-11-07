@@ -1,3 +1,6 @@
+rm(list = ls())
+
+
 library(ggplot2)
 library(tidyverse)
 library(caTools)
@@ -23,7 +26,7 @@ df_vars$clm <- factor(df_vars$clm)
 
 split_df <- sample.split(df_vars$clm, SplitRatio = 0.8)
 
-train_df <- df_vars[split_df, ]
+training_df <- df_vars[split_df, ]
 test_df <- df_vars[!split_df, ]
 
 
@@ -83,7 +86,14 @@ ggplot(data = df, x = veh_value, y = exposure) +
   geom_point()
 
 
-
+reprex(
+  input = c(
+    'if (True) "true branch" else {',
+    '"else branch"',
+    '             }'
+  ),
+  style = TRUE
+)
 
 
 

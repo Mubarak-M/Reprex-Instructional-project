@@ -38,11 +38,7 @@ editor: source
 
 ------------------------------------------------------------------------
 
-<<<<<<< HEAD
-## Motivation for Reproducibility {.incremental}
-=======
 ## Motivation for Reproducible Examples { .incremental }
->>>>>>> 2b8954e2779a577cb65513d17e966b5a56dd799f
 
 The sharing and communicating of code is complex in modern day
 
@@ -85,7 +81,6 @@ A solution to these problems??
 
 ::: fragment
 ```{r, echo=TRUE, eval=FALSE}
-options(repos = c(CRAN = "https://cloud.r-project.org"))
 # Install the reprex package from CRAN
 install.packages("reprex")
 ```
@@ -186,15 +181,12 @@ reprex({
 
 -   **style:** This specifies whether to re-style the code with the styler package. The default is FALSE. comment: This sets the prefix for commenting out the output. The default is "#\>".
 
-<br>
 
 -   **tidyverse_quiet:** This determines whether to suppress startup messages from tidyverse packages. The default is TRUE.
 
-<br>
 
 -   **std_out_err:** This decides whether to capture and display standard output and standard error. The default is FALSE.
 
-<br>
 
 -   **html_preview:** This controls whether to show an HTML preview of the reprex in the RStudio viewer or the default browser. The default is TRUE.
 
@@ -490,13 +482,6 @@ Session info contains many technical details about your current R session, inclu
 
 5. Muldoon, A. (2021). How to reprex. Retrieved November 6, 2023, from https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1
 
-<<<<<<< HEAD
 [Slide Code on Github](https://github.com/Mubarak-M/Reprex-Instructional-project)
 
-<!-- -   [Make a reprex .... please](https://make-a-reprex-please.netlify.app/#1) -->
-
-<!-- -   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1) -->
 :::
-=======
--   [How to reprex](https://aosmith16.github.io/spring-r-topics/slides/week09_reprex.html#1)
->>>>>>> 2b8954e2779a577cb65513d17e966b5a56dd799f
